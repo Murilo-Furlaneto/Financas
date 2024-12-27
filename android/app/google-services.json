@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "14908658070",
     "project_id": "financas-fb5dd",
-    "storage_bucket": "financas-fb5dd.appspot.com"
+    "storage_bucket": "financas-fb5dd.firebasestorage.app"
   },
   "client": [
     {
@@ -13,6 +13,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "14908658070-fbslus09jto16202gs4etfvcevs98h5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.financas",
+            "certificate_hash": "527d22a589dd01cb95f41c0829576fa0713de4cd"
+          }
+        },
         {
           "client_id": "14908658070-3j1j2cd51omqddqppmk6p3sos126ho8r.apps.googleusercontent.com",
           "client_type": 3

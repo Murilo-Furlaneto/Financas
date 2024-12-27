@@ -1,7 +1,7 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
 import 'package:financas/domain/model/monthly_expenses_model.dart';
 import 'package:financas/presentation/view/profile_page.dart';
-import 'package:financas/presentation/viewmodel/monthly_expenses._viewmodel.dart';
+import 'package:financas/presentation/provider/monthly_expenses._provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -27,18 +27,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _monthlyExpenses = Provider.of<MonthlyExpensesViewmodel>(context);
+    var monthlyExpenses = Provider.of<MonthlyExpensesProvider>(context);
 
     @override
     void initState() {
       super.initState();
-      _monthlyExpenses.loadLocalExpenses();
+      monthlyExpenses.loadLocalExpenses();
     }
 
     @override
     void dispose() {
       super.dispose();
-      _monthlyExpenses.saveLocalExpenses(_monthlyExpenses.getExpenses);
+      monthlyExpenses.saveLocalExpenses(monthlyExpenses.getExpenses);
     }
 
     return Scaffold(
@@ -70,22 +70,20 @@ class _HomePageState extends State<HomePage> {
           children: [
             ListView.builder(
                 shrinkWrap: true,
-                itemCount: _monthlyExpenses.getExpenses.length,
+                itemCount: monthlyExpenses.getExpenses.length,
                 itemBuilder: (BuildContext context, int index) {
-                  MonthlyExpenses monthlyExpenses =
-                      _monthlyExpenses.getExpenses[index];
+                  MonthlyExpenses expenses = monthlyExpenses.getExpenses[index];
                   return ListTile(
                     leading: CircleAvatar(
-                      child: Text(monthlyExpenses.title[0]),
+                      child: Text(expenses.title[0]),
                     ),
                     title: Text(
-                      monthlyExpenses.title,
+                      expenses.title,
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text('Vencimento: ${monthlyExpenses.dueDate}'),
-                    trailing: Text(
-                        'R\$ ${monthlyExpenses.amount.toStringAsFixed(2)}',
+                    subtitle: Text('Vencimento: ${expenses.dueDate}'),
+                    trailing: Text('R\$ ${expenses.amount.toStringAsFixed(2)}',
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
                   );

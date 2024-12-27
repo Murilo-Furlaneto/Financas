@@ -1,8 +1,10 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
+import 'package:financas/data/database/localDatabase/sqlite.dart';
 import 'package:financas/data/repository/firebase/firebase_repository.dart';
 import 'package:financas/data/service/firebase_service.dart';
-import 'package:financas/presentation/viewmodel/monthly_expenses._viewmodel.dart';
-import 'package:financas/presentation/viewmodel/user_viewmodel.dart';
+import 'package:financas/firebase_options.dart';
+import 'package:financas/presentation/provider/monthly_expenses._provider.dart';
+import 'package:financas/presentation/provider/user_provider.dart';
 import 'package:financas/presentation/view/check_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,10 +25,8 @@ void main() async {
             SharedPreferencesHelper(),
           ),
         ),
-        ChangeNotifierProvider<MonthlyExpensesViewmodel>(
-          create: (_) => MonthlyExpensesViewmodel(
-            SharedPreferencesHelper(),
-          ),
+        ChangeNotifierProvider<MonthlyExpensesProvider>(
+          create: (_) => MonthlyExpensesProvider(SqliteDataBase.instance),
         ),
       ],
       child: const MyApp(),

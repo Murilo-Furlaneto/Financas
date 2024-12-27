@@ -4,7 +4,7 @@ import 'package:financas/data/service/firebase_service.dart';
 import 'package:financas/domain/model/user_model.dart';
 import 'package:financas/data/repository/firebase/firebase_repository.dart';
 import 'package:financas/presentation/view/authentication/login_page.dart';
-import 'package:financas/presentation/viewmodel/user_viewmodel.dart';
+import 'package:financas/presentation/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
