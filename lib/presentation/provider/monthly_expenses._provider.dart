@@ -10,11 +10,10 @@ class MonthlyExpensesProvider extends ChangeNotifier {
 
   List<MonthlyExpenses> get getExpenses => _expenses;
 
-  Future<void> saveLocalExpenses(List<MonthlyExpenses> expenses) async {
+  Future<void> saveLocalExpenses(MonthlyExpenses expenses) async {
     try {
-      for (var expense in expenses) {
-        await _sqliteDatabase.createExpense(expense);
-      }
+      await _sqliteDatabase.createExpense(expenses);
+
       _expenses = await _sqliteDatabase.getAllExpenses();
       notifyListeners();
     } catch (e) {

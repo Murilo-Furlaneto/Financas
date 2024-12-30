@@ -1,6 +1,8 @@
+import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
 import 'package:financas/core/helpers/validacao/validacao_helper.dart';
 import 'package:financas/data/repository/firebase/firebase_repository.dart';
 import 'package:financas/data/service/firebase_service.dart';
+import 'package:financas/domain/model/user_model.dart';
 import 'package:financas/presentation/widgets/authentication/sign_up_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -192,7 +194,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                         await Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => const HomePage())));
+                                builder: ((context) => HomePage())));
                       }
                     },
                     style: ElevatedButton.styleFrom(

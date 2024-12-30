@@ -203,7 +203,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                         await Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomePage()));
+                                builder: (context) =>  HomePage()));
                       }
                     },
                     style: ElevatedButton.styleFrom(

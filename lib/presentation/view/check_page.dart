@@ -21,7 +21,7 @@ class _CheckPageState extends State<CheckPage> {
 
       if (user != null) {
         return Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomePage()));
+            context, MaterialPageRoute(builder: (context) => HomePage()));
       } else {
         return Navigator.push(context,
             MaterialPageRoute(builder: (context) => const SignUpPage()));
