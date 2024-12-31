@@ -1,16 +1,16 @@
+import 'package:financas/domain/model/day_model.dart';
 import 'package:financas/domain/model/monthly_expenses_model.dart';
 import 'package:financas/presentation/provider/monthly_expenses._provider.dart';
 import 'package:financas/presentation/view/profile_page.dart';
+import 'package:financas/presentation/widgets/home/bar_chart_widget.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:uuid/v4.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
-
-  var uuid = const Uuid();
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -60,34 +60,87 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: monthlyExpensesProvider.getExpenses.length,
-                itemBuilder: (BuildContext context, int index) {
-                  MonthlyExpenses expenses =
-                      monthlyExpensesProvider.getExpenses[index];
-                  return ListTile(
-                    leading: CircleAvatar(
-                      child: Text(expenses.title[0]),
-                    ),
-                    title: Text(
-                      expenses.title,
-                      style: const TextStyle(
-                        fontSize: 18,
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text.rich(
+                    TextSpan(
+                      text: 'Saldo de Novembro',
+                      style: TextStyle(
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'R\$ 100',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            )),
+                      ],
                     ),
-                    subtitle: Text('Vencimento: ${expenses.dueDate}'),
-                    trailing: Text(
-                      'R\$ ${expenses.amount.toStringAsFixed(2)}',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 45,
+                  top: 20,
+                ),
+                child: Text(
+                  'Minhas rendas',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Container(
+                height: 330,
+                padding: const EdgeInsets.all(18.0),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: monthlyExpensesProvider.getExpenses.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    MonthlyExpenses expenses =
+                        monthlyExpensesProvider.getExpenses[index];
+                    return ListTile(
+                      leading: CircleAvatar(
+                        child: Text(expenses.title[0]),
                       ),
-                    ),
-                  );
-                },
+                      title: Text(
+                        expenses.title,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text('Vencimento: ${expenses.dueDate}'),
+                      trailing: Text(
+                        'R\$ ${expenses.amount.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 45),
+                child: Text(
+                  'Resumo semanal (gráfico)',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              BarChartWidget(
+                days: [
+                  Day(id: 'Seg', valor: -45),
+                  Day(id: 'Ter', valor: 5),
+                  Day(id: 'Qua', valor: 35),
+                  Day(id: 'Qui', valor: 65),
+                ],
               ),
             ],
           ),
@@ -163,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                           listen: false);
                   monthlyExpensesProvider.saveLocalExpenses(
                     MonthlyExpenses(
-                      id: widget.uuid.v4(),
+                      id: const Uuid().v4(),
                       title: accountName,
                       amount: amount,
                       dueDate: dueDate,
