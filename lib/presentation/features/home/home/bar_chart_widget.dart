@@ -19,6 +19,18 @@ class BarChartWidget extends StatelessWidget {
           maxY:
               days.map((day) => day.valor).reduce((a, b) => a > b ? a : b) + 10,
           barTouchData: BarTouchData(enabled: false),
+          borderData: FlBorderData(show: false),
+          barGroups: days.asMap().entries.map((entry) {
+            int index = entry.key;
+            Day dia = entry.value;
+            return BarChartGroupData(x: index, barRods: [
+              BarChartRodData(
+                toY: dia.valor,
+                color: dia.valor < 0 ? Colors.red : Colors.green,
+                width: 20,
+              )
+            ]);
+          }).toList(),
           titlesData: FlTitlesData(
             show: true,
             bottomTitles: AxisTitles(

@@ -1,8 +1,8 @@
 import 'package:financas/domain/model/day_model.dart';
 import 'package:financas/domain/model/monthly_expenses_model.dart';
-import 'package:financas/presentation/provider/monthly_expenses._provider.dart';
-import 'package:financas/presentation/view/profile_page.dart';
-import 'package:financas/presentation/widgets/home/bar_chart_widget.dart';
+import 'package:financas/presentation/features/monthly%20expenses/provider/monthly_expenses._provider.dart';
+import 'package:financas/presentation/features/user/view/profile_page.dart';
+import 'package:financas/presentation/features/home/home/bar_chart_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,14 +67,14 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.all(8.0),
                   child: Text.rich(
                     TextSpan(
-                      text: 'Saldo de Novembro',
+                      text: 'Saldo de Novembro:',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'R\$ 100',
+                            text: ' R\$ 100',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -140,6 +140,9 @@ class _HomePageState extends State<HomePage> {
                   Day(id: 'Ter', valor: 5),
                   Day(id: 'Qua', valor: 35),
                   Day(id: 'Qui', valor: 65),
+                  Day(id: 'Sex', valor: 200),
+                  Day(id: 'Sab', valor: 100),
+                  Day(id: 'Dom', valor: -100),
                 ],
               ),
             ],

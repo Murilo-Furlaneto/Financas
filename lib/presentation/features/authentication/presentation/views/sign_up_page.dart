@@ -1,4 +1,4 @@
-import 'package:financas/presentation/widgets/authentication/sign_up_form_widget.dart';
+import 'package:financas/presentation/features/authentication/widgets/sign_up_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {

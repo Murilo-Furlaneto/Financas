@@ -1,7 +1,7 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
 import 'package:financas/domain/model/user_model.dart';
-import 'package:financas/presentation/view/authentication/sign_up_page.dart';
-import 'package:financas/presentation/view/home_page.dart';
+import 'package:financas/presentation/features/authentication/presentation/views/sign_up_page.dart';
+import 'package:financas/presentation/features/home/view/home_page.dart';
 import 'package:flutter/material.dart';
 
 class CheckPage extends StatefulWidget {

@@ -1,12 +1,12 @@
 import 'package:financas/data/service/firebase_service.dart';
-import 'package:financas/presentation/provider/user_provider.dart';
+import 'package:financas/presentation/features/user/provider/user_provider.dart';
 import 'package:financas/domain/model/user_model.dart';
 import 'package:financas/data/repository/firebase/firebase_repository.dart';
-import 'package:financas/presentation/view/home_page.dart';
-import 'package:financas/presentation/view/authentication/login_page.dart';
+import 'package:financas/presentation/features/home/view/home_page.dart';
+import 'package:financas/presentation/features/authentication/presentation/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/helpers/validacao/validacao_helper.dart';
+import '../../../../core/helpers/validacao/validacao_helper.dart';
 
 class SignUpFormWidget extends StatefulWidget {
   const SignUpFormWidget({Key? key}) : super(key: key);
