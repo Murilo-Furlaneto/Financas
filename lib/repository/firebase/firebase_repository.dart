@@ -1,7 +1,7 @@
 import 'package:financas/core/errors/error.dart';
 import 'package:financas/data/service/firebase_service.dart';
-import 'package:financas/domain/model/user_model.dart';
-import 'package:financas/domain/repository/firebase/firebase_repository_interface.dart';
+import 'package:financas/model/user/user_model.dart';
+import 'package:financas/repository/firebase/firebase_repository_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

@@ -1,13 +1,13 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
 import 'package:financas/core/helpers/validacao/validacao_helper.dart';
-import 'package:financas/data/repository/firebase/firebase_repository.dart';
+import 'package:financas/repository/firebase/firebase_repository.dart';
 import 'package:financas/data/service/firebase_service.dart';
-import 'package:financas/domain/model/user_model.dart';
-import 'package:financas/presentation/features/authentication/widgets/sign_up_form_widget.dart';
+import 'package:financas/model/user/user_model.dart';
+import 'package:financas/widgets/authentication/sign_up_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:financas/presentation/features/home/view/home_page.dart';
-import 'package:financas/presentation/features/authentication/presentation/views/forgot_password.dart';
+import 'package:financas/views/home/home_page.dart';
+import 'package:financas/views/authentication/forgot_password.dart';
 
 class LoginFormWidget extends StatefulWidget {
   const LoginFormWidget({Key? key}) : super(key: key);

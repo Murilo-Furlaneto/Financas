@@ -1,6 +1,6 @@
 import 'package:financas/data/database/localDatabase/sqlite.dart';
 import 'package:flutter/material.dart';
-import 'package:financas/domain/model/monthly_expenses_model.dart';
+import 'package:financas/model/monthly%20epenses/monthly_expenses_model.dart';
 
 class MonthlyExpensesProvider extends ChangeNotifier {
   List<MonthlyExpenses> _expenses = [];

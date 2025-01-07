@@ -1,4 +1,4 @@
-import 'package:financas/domain/model/day_model.dart';
+import 'package:financas/model/day/day_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

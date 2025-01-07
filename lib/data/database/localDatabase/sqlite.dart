@@ -1,4 +1,4 @@
-import 'package:financas/domain/model/monthly_expenses_model.dart';
+import 'package:financas/model/monthly%20epenses/monthly_expenses_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 

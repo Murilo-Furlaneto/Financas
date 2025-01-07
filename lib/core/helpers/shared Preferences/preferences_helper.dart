@@ -1,5 +1,5 @@
-import 'package:financas/domain/model/monthly_expenses_model.dart';
-import 'package:financas/domain/model/user_model.dart';
+import 'package:financas/model/monthly%20epenses/monthly_expenses_model.dart';
+import 'package:financas/model/user/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesHelper {

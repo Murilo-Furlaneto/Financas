@@ -1,6 +1,6 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
-import 'package:financas/domain/model/user_model.dart';
-import 'package:financas/data/repository/firebase/firebase_repository.dart';
+import 'package:financas/model/user/user_model.dart';
+import 'package:financas/repository/firebase/firebase_repository.dart';
 import 'package:flutter/material.dart';
 
 class UserViewModel extends ChangeNotifier {

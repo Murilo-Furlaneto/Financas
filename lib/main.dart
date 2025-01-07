@@ -1,11 +1,11 @@
 import 'package:financas/core/helpers/shared%20Preferences/preferences_helper.dart';
 import 'package:financas/data/database/localDatabase/sqlite.dart';
-import 'package:financas/data/repository/firebase/firebase_repository.dart';
+import 'package:financas/repository/firebase/firebase_repository.dart';
 import 'package:financas/data/service/firebase_service.dart';
 import 'package:financas/firebase_options.dart';
-import 'package:financas/presentation/features/monthly%20expenses/provider/monthly_expenses._provider.dart';
-import 'package:financas/presentation/features/user/provider/user_provider.dart';
-import 'package:financas/presentation/features/authentication/presentation/views/check_page.dart';
+import 'package:financas/provider/monthly%20expenses/monthly_expenses._provider.dart';
+import 'package:financas/provider/user/user_provider.dart';
+import 'package:financas/views/authentication/check_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
